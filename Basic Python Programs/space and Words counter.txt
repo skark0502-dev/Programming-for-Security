@@ -1,0 +1,12 @@
+St = str(input("Enter the String: "))
+word_count = 1
+space_count  = 0
+
+for x in St:
+    if x == ' ':
+        word_count += 1
+        space_count += 1
+        
+print("This string has A Total of " + str(len(St)) + " characters")
+print("This string has A Total of " + str(word_count) + " words")
+print("This string has A Total of " + str(space_count) + " spaces")

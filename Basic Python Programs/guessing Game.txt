@@ -1,0 +1,67 @@
+sec_word = "giraffe"
+i = 0
+count = 0
+gss = True
+Hint_1 = "\nHint 1: ***It is an Animal***"
+Hint_2 = "\nHint 2: ***It lives in Dry Savannahs of Africa***"
+Hint_3 = "\nHint 3: ***It is popular for its Long neck***"
+
+def guess(count, gss):
+    g = str(input("\n\nEnter Your guess{Enter Everything in small letters}: "))
+    
+    if g == "giraffe":
+        print("Nice! Your got That Right!!")
+        gss = False
+    else:
+        print("Nope! Your missed that one.. Give another try")
+        
+    count += 1
+    return count,gss
+    
+
+print ("Welcome to the guess game!!. You have 3 Hints. Once you Take your 3rd Hint. Your are Left with Only 2 Chances. So Let's Begin, GOOD LUCK!!")
+
+
+    
+while gss and i <= 3:
+    if i == 0: 
+        print(Hint_1)
+        count, gss = guess(count, gss)
+        i += 1
+        
+    elif i == 1:
+        print(Hint_1)
+        opt_1 = input("Do you want to Guess the Word Or Want another Hint? [1. YES (OR) 2. NO]: ")
+        if opt_1 == 'YES':
+            print(Hint_2)
+            count, gss = guess(count, gss)
+            i+=1
+        elif opt_1 == 'NO':
+            count, gss = guess(count, gss)
+        
+    elif i == 2:
+        
+        print(Hint_1)
+        print(Hint_2)
+        opt_2 = input("Do you want to Guess the Word Or Want another Hint? [1. YES (OR) 2. NO]: ")
+        if opt_2 == "YES":
+            print(Hint_3)
+            print("Since You Have taken the Third Hint. You still have 2 Lives left")
+            count, gss = guess(count, gss)
+            i+=1
+        elif opt_2 == "NO":
+            count, gss = guess(count, gss)
+            
+    elif i == 3:
+        print(Hint_1)
+        print(Hint_2)
+        print(Hint_3)
+        print("Since Your Have taken the Third Hint This is Your Last Chance")
+        count, gss = guess(count, gss)
+        i+=1
+        
+
+if gss == True:
+    print("Your Have Lost the Game... Better Luck Next time")
+elif gss == False: 
+    print("Congragulation!! Your Have Won the Game in " + str(count) + " Tries...")
